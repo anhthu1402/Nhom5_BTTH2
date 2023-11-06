@@ -71,9 +71,9 @@
           });
         };
 
-        // Landmark 81
-        const backgroundLandmark81 = new GeoJSONLayer({
-          url: "./GeoJSON/Landmark81/background.geojson",
+        // background1
+        const background1 = new GeoJSONLayer({
+          url: "./GeoJSON/background1.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -81,7 +81,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 1,
+                  size: 8,
                   material: {
                     color: "smoke",
                   },
@@ -98,16 +98,16 @@
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
-          layers: [backgroundLandmark81], //end layers
+          layers: [background1], //end layers
         });
 
         const view = new SceneView({
           container: "viewDiv",
           map: map,
           camera: {
-            position: [106.720264, 10.786162, 300],
+            position: [106.69495037907745, 10.77410539190575, 230],
             heading: 0,
-            tilt: 75,
+            tilt: 55,
           },
         });
 
