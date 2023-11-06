@@ -71,10 +71,34 @@
           });
         };
 
+        // Landmark 81
+        const backgroundLandmark81 = new GeoJSONLayer({
+          url: "./GeoJSON/Landmark81/background.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
-          layers: [], //end layers
+          layers: [backgroundLandmark81], //end layers
         });
 
         const view = new SceneView({
