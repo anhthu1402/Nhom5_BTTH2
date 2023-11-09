@@ -42,21 +42,24 @@
     <script src="https://js.arcgis.com/4.16/"></script>
     <script>
       var map;
-    var list_points = [];
-    var string_points = "";
+      var list_points = [];
+      var string_points = "";
 
-    function copyTextToClipboard(text) {
-      if (!navigator.clipboard) {
-        fallbackCopyTextToClipboard(text);
-        return;
+      function copyTextToClipboard(text) {
+        if (!navigator.clipboard) {
+          fallbackCopyTextToClipboard(text);
+          return;
+        }
+        navigator.clipboard.writeText(text).then(
+          function () {
+            console.log("Async: Copying to clipboard was successful!");
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
       }
-      navigator.clipboard.writeText(text).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
-      }, function(err) {
-        console.error('Async: Could not copy text: ', err);
-      });
-    }
-    
+
       require([
         "esri/Map",
         "esri/views/SceneView",
@@ -134,7 +137,7 @@
           },
         });
 
-        //b_stair
+        //d_stair
         //lvl1
         const d_star_lvl1 = new GeoJSONLayer({
           url: "./GeoJSON/d/stair/stair_level1.geojson",
@@ -459,7 +462,7 @@
                   type: "extrude",
                   size: 0.2,
                   material: {
-                    color: '#fbedd7'
+                    color: "#fbedd7",
                     //[251, 237, 215, 0.2],
                   },
                   edges: {
@@ -484,7 +487,7 @@
                   type: "extrude",
                   size: 15,
                   material: {
-                    color: '#fbedd7'
+                    color: "#fbedd7",
                     //[251, 237, 215, 0.2],
                   },
                   edges: {
@@ -496,7 +499,79 @@
             },
           },
         });
-        
+
+        // side window _ side a
+        const d_block123_floor1_a_window_side_window = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor1/a/window/side_window_left_right.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 5,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        // window top - bottom - side a
+        const d_block123_floor1_a_window_top_bottom = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor1/a/window/window_top_bottom.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.2,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        // window top - bottom - side d
+        const d_block123_floor1_d_window_top_bottom = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor1/d/window/window_top_bottom.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -516,6 +591,9 @@
             d_star_lvl3,
             d_star_lvl2,
             d_star_lvl1,
+            d_block123_floor1_a_window_side_window,
+            d_block123_floor1_a_window_top_bottom,
+            d_block123_floor1_d_window_top_bottom,
             background1,
             background2
           ], //end layers
@@ -534,16 +612,26 @@
         view.popup.defaultPopupTemplateEnabled = true;
 
         view.popup.autoOpenEnabled = false; // Disable the default popup behavior
-      view.on("click", function(event) { // Listen for the click event
-        view.hitTest(event).then(function(hitTestResults) { // Search for features where the user clicked
-          if (hitTestResults.results) {        
-            list_points.push([event.mapPoint.longitude, event.mapPoint.latitude]);
-            string_points += "[" + event.mapPoint.longitude + ", " + event.mapPoint.latitude + "],"
-            copyTextToClipboard(string_points);
-            // console.log(list_points);
-          }
-        })
-      });
+        view.on("click", function (event) {
+          // Listen for the click event
+          view.hitTest(event).then(function (hitTestResults) {
+            // Search for features where the user clicked
+            if (hitTestResults.results) {
+              list_points.push([
+                event.mapPoint.longitude,
+                event.mapPoint.latitude,
+              ]);
+              string_points +=
+                "[" +
+                event.mapPoint.longitude +
+                ", " +
+                event.mapPoint.latitude +
+                "],";
+              copyTextToClipboard(string_points);
+              // console.log(list_points);
+            }
+          });
+        });
       });
     </script>
   </head>
