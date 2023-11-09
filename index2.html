@@ -111,6 +111,29 @@
           },
         });
 
+        const background2 = new GeoJSONLayer({
+          url: "./GeoJSON/background1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 14,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         //b_stair
         //lvl1
         const d_star_lvl1 = new GeoJSONLayer({
@@ -362,7 +385,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 7,
+                  size: 8.5,
                   material: {
                     color: "#fbedd7",
                   },
@@ -434,7 +457,32 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 0.4,
+                  size: 0.2,
+                  material: {
+                    color: '#fbedd7'
+                    //[251, 237, 215, 0.2],
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //floor_2_columns
+        const d_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/columns/floor2_columns.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 15,
                   material: {
                     color: '#fbedd7'
                     //[251, 237, 215, 0.2],
@@ -453,6 +501,7 @@
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
+            d_columns,
             d_side_door_top_3,
             d_side_door_top_2,
             d_side_door_top_1,
@@ -467,14 +516,16 @@
             d_star_lvl3,
             d_star_lvl2,
             d_star_lvl1,
-            background1], //end layers
+            background1,
+            background2
+          ], //end layers
         });
 
         const view = new SceneView({
           container: "viewDiv",
           map: map,
           camera: {
-            position: [106.69495037907745, 10.77410539190575, 200],
+            position: [106.69566416577673, 10.776885700078179, 200],
             heading: 0,
             tilt: 55,
           },
