@@ -114,6 +114,30 @@
           },
         });
 
+        // roof
+        const roof1 = new GeoJSONLayer({
+          url: "./GeoJSON/roof1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.5,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         //border
         const border1 = new GeoJSONLayer({
           url: "./GeoJSON/border/border_1.geojson",
@@ -619,10 +643,35 @@
           },
         });
 
+        //roof sub edge
+        const d_roof_sub_edge_left = new GeoJSONLayer({
+          url: "./GeoJSON/d/roof/roof_sub_edge_left.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
+            d_roof_sub_edge_left,
             d_columns,
             d_side_door_top_3,
             d_side_door_top_2,
@@ -644,7 +693,8 @@
             background1,
             border1,
             border2,
-            border3
+            border3,
+            roof1,
           ], //end layers
         });
 
