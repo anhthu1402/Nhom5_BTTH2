@@ -114,8 +114,9 @@
           },
         });
 
-        const background2 = new GeoJSONLayer({
-          url: "./GeoJSON/background1.geojson",
+        //border
+        const border1 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_1.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -123,9 +124,55 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 14,
+                  size: 1.5,
                   material: {
                     color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const border2 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const border3 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.5,
+                  material: {
+                    color: "#fbedd7",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -485,7 +532,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 15,
+                  size: 19.3,
                   material: {
                     color: "#fbedd7",
                     //[251, 237, 215, 0.2],
@@ -595,7 +642,9 @@
             d_block123_floor1_a_window_top_bottom,
             d_block123_floor1_d_window_top_bottom,
             background1,
-            background2
+            border1,
+            border2,
+            border3
           ], //end layers
         });
 

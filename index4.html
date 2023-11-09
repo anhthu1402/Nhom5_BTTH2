@@ -95,10 +95,85 @@
           },
         });
 
+        //border
+        const border1 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.5,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const border2 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const border3 = new GeoJSONLayer({
+          url: "./GeoJSON/border/border_3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.5,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
-          layers: [background1], //end layers
+          layers: [
+            border1,
+            border2,
+            border3,
+            background1
+          ], //end layers
         });
 
         const view = new SceneView({
