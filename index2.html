@@ -116,7 +116,7 @@
 
         // roof
         const roof1 = new GeoJSONLayer({
-          url: "./GeoJSON/roof1.geojson",
+          url: "./GeoJSON/roof/roof1.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -125,6 +125,76 @@
                 {
                   type: "extrude",
                   size: 1.5,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //roof sub edge
+        const d_roof_sub_edge1 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof_sub_edge1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.5,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const d_roof_sub_edge2_frame_left = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof_sub_edge2_frame_left.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.5,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const d_roof_sub_edge2 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof_sub_edge2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.2,
                   material: {
                     color: "smoke",
                   },
@@ -643,35 +713,13 @@
           },
         });
 
-        //roof sub edge
-        const d_roof_sub_edge_left = new GeoJSONLayer({
-          url: "./GeoJSON/d/roof/roof_sub_edge_left.geojson",
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 1,
-                  material: {
-                    color: "#d9c3a3",
-                  },
-                  edges: {
-                    type: "solid", // autocasts as new SolidEdges3D()
-                    color: "transparent",
-                  },
-                },
-              ],
-            },
-          },
-        });
-
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
-            d_roof_sub_edge_left,
+            d_roof_sub_edge2,
+            d_roof_sub_edge2_frame_left,
+            d_roof_sub_edge1,
             d_columns,
             d_side_door_top_3,
             d_side_door_top_2,
