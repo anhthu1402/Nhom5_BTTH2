@@ -102,7 +102,7 @@
                   type: "extrude",
                   size: 8,
                   material: {
-                    color: "smoke",
+                    color: "#dacdc0",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -126,7 +126,7 @@
                   type: "extrude",
                   size: 1.5,
                   material: {
-                    color: "smoke",
+                    color: "#dacdc0",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -631,7 +631,7 @@
                   type: "extrude",
                   size: 1.5,
                   material: {
-                    color: "#d9c3a3",
+                    color: "#eae9e9",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -654,7 +654,7 @@
                   type: "extrude",
                   size: 1.5,
                   material: {
-                    color: "#d9c3a3",
+                    color: "#eae9e9",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -677,7 +677,7 @@
                   type: "extrude",
                   size: 0.2,
                   material: {
-                    color: "smoke",
+                    color: "#dacdc0",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -701,7 +701,7 @@
                   type: "extrude",
                   size: 0.2,
                   material: {
-                    color: "smoke",
+                    color: "white",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -724,7 +724,7 @@
                   type: "extrude",
                   size: 3,
                   material: {
-                    color: "smoke",
+                    color: "white",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -747,7 +747,76 @@
                   type: "extrude",
                   size: 3.4,
                   material: {
-                    color: "smoke",
+                    color: "white",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const d_attic_roof_frame = new GeoJSONLayer({
+          url: "./GeoJSON/d/attic/roof/frame.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "white",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const d_attic_roof_floor1 = new GeoJSONLayer({
+          url: "./GeoJSON/d/attic/roof/floor1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.2,
+                  material: {
+                    color: "grey",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const d_attic_roof_floor2 = new GeoJSONLayer({
+          url: "./GeoJSON/d/attic/roof/floor2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.5,
+                  material: {
+                    color: "#e47c5c",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -811,6 +880,9 @@
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
+            d_attic_roof_floor2,
+            d_attic_roof_floor1,
+            d_attic_roof_frame,
             d_block45678_floor2_RemHoaDa_top,
             d_block45678_floor2_RemHoaDa,
             d_attic_wall1,
