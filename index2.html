@@ -100,7 +100,31 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 8,
+                  size: 7,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //background 3
+        const background3 = new GeoJSONLayer({
+          url: "./GeoJSON/background3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
                   material: {
                     color: "smoke",
                   },
@@ -127,6 +151,54 @@
                   size: 1.5,
                   material: {
                     color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //roof2
+        const roof2 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#e9cb8a",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //roof3
+        const roof3 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.4,
+                  material: {
+                    color: "#fbedd7",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -412,7 +484,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 5,
+                  size: 8,
                   material: {
                     color: "smoke",
                   },
@@ -460,7 +532,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 4,
+                  size: 7,
                   material: {
                     color: "gray",
                   },
@@ -475,8 +547,8 @@
         });
 
         //d floor 1 front columns
-        const d_floor1_front_columns = new GeoJSONLayer({
-          url: "./GeoJSON/d/block45678/floor1/columns/frontColumns.geojson",
+        const d_floor1_surround_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/block45678/floor1/columns/surroundColumns.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -484,7 +556,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 5,
+                  size: 7,
                   material: {
                     color: "gray",
                   },
@@ -536,6 +608,55 @@
                   material: {
                     color: "#fbedd7",
                     //[251, 237, 215, 0.2],
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //floor_2_side_columns
+        const d_floor2_side_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/columns/floor2_side_columns.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 16.3,
+                  material: {
+                    color: "#fbedd7",
+                    //[251, 237, 215, 0.2],
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //d floor 1 front columns
+        const d_floor1_roof_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/block45678/floor1/columns/roofColumn.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 2,
+                  material: {
+                    color: "gray",
                   },
                   edges: {
                     type: "solid",
@@ -811,21 +932,23 @@
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
-            d_block45678_floor2_RemHoaDa_top,
+            /*d_block45678_floor2_RemHoaDa_top,
             d_block45678_floor2_RemHoaDa,
             d_attic_wall1,
             d_attic_wall2,
             d_roof_sub_edge2_frame_left,
             d_attic_floor,
             d_roof_sub_edge2,
-            d_roof_sub_edge1,
+            d_roof_sub_edge1,*/
             d_columns,
+            d_floor1_roof_columns,
+            /*d_floor2_side_columns,
             d_floor1_room_door,
             d_floor1_room,
-            d_floor1_inside_columns_decor,
-            d_floor1_inside_columns,
-            d_floor1_front_columns,
-            d_side_door_top_3,
+            /*d_floor1_inside_columns_decor,
+            d_floor1_inside_columns,*/
+            d_floor1_surround_columns,
+            /*d_side_door_top_3,
             d_side_door_top_2,
             d_side_door_top_1,
             d_side_door_column,
@@ -834,13 +957,16 @@
             d_side_star,
             d_block123_floor1_a_window_side_window,
             d_block123_floor1_a_window_top_bottom,
-            d_block123_floor1_d_window_top_bottom,
+            d_block123_floor1_d_window_top_bottom,*/
+            background3,
             background1,
             background2,
             border1,
-            border2,
+            /*border2,
             border3,
             roof1,
+            roof2,
+            roof3*/
           ], //end layers
         });
 

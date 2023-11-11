@@ -4,9 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Building name": "Landmark 81",
-        "height": 150,
-        "idb": "8"
+        "Building name": "Landmark 81"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -37,8 +35,7 @@
             ]
           ]
         ]
-      },
-      "id": "pp8"
+      }
     }
   ]
 }
