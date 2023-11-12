@@ -547,8 +547,8 @@
         });
 
         //d floor 1 front columns
-        const d_floor1_surround_columns = new GeoJSONLayer({
-          url: "./GeoJSON/d/block45678/floor1/columns/surroundColumns.geojson",
+        const d_floor1_front_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/block45678/floor1/columns/frontColumns.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -556,9 +556,33 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 7,
+                  size: 5.5,
                   material: {
                     color: "gray",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //d floor 1 back columns
+        const d_floor1_back_columns = new GeoJSONLayer({
+          url: "./GeoJSON/d/block45678/floor1/columns/backColumns.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 5.6,
+                  material: {
+                    color: "#fbedd7",
                   },
                   edges: {
                     type: "solid",
@@ -654,7 +678,7 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 2,
+                  size: 1,
                   material: {
                     color: "gray",
                   },
@@ -1019,7 +1043,8 @@
             d_floor1_room,
             d_floor1_inside_columns_decor,
             d_floor1_inside_columns,
-            d_floor1_surround_columns,
+            d_floor1_front_columns,
+            d_floor1_back_columns,
             d_side_door_top_3,
             d_side_door_top_2,
             d_side_door_top_1,
