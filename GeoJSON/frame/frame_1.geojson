@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Building name": "border_1"
+        "Building name": "frame_1"
       },
       "geometry": {
         "type": "MultiPolygon",

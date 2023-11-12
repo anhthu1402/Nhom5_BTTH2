@@ -234,9 +234,9 @@
           },
         });
 
-        //border
-        const border1 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_1.geojson",
+        //frame
+        const frame1 = new GeoJSONLayer({
+          url: "./GeoJSON/frame/frame_1.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -258,8 +258,8 @@
           },
         });
 
-        const border2 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_2.geojson",
+        const frame2 = new GeoJSONLayer({
+          url: "./GeoJSON/frame/frame_2.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -281,8 +281,8 @@
           },
         });
 
-        const border3 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_3.geojson",
+        const frame3 = new GeoJSONLayer({
+          url: "./GeoJSON/frame/frame_3.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -975,7 +975,7 @@
 
         // d_Rèm Hoa Đá bottom
         const d_block45678_floor2_RemHoaDa = new GeoJSONLayer({
-          url: "./GeoJSON/d/block45678/floor2/RemHoaDa.geojson",
+          url: "./GeoJSON/d/block45678/floor2_wall_decor/RemHoaDa.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -999,7 +999,7 @@
 
         // d_Rèm Hoa Đá top
         const d_block45678_floor2_RemHoaDa_top = new GeoJSONLayer({
-          url: "./GeoJSON/d/block45678/floor2/RemHoaDa_top.geojson",
+          url: "./GeoJSON/d/block45678/floor2_wall_decor/RemHoaDa_top.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -1021,10 +1021,107 @@
           },
         });
 
+        // block123 floor 2 wall
+        const block123_floor2_wall1 = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor2/wall1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 12.1,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const block123_floor2_wall2 = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor2/wall2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.21,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const block123_floor2_wall3 = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor2/wall3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 2.42,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const block123_floor2_window_balcony = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor2/window_balcony.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 121 / 75,
+                  material: {
+                    color: "#4c4740",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
           layers: [
+            block123_floor2_wall3,
+            block123_floor2_window_balcony,
+            block123_floor2_wall2,
+            block123_floor2_wall1,
             d_attic_roof_floor2,
             d_attic_roof_floor1,
             d_attic_roof_frame,
@@ -1039,8 +1136,11 @@
             d_columns,
             d_floor1_roof_columns,
             d_floor2_side_columns,
+            d_floor2_side_columns,
             d_floor1_room_door,
             d_floor1_room,
+            d_floor1_inside_columns_decor,
+            d_floor1_inside_columns,
             d_floor1_inside_columns_decor,
             d_floor1_inside_columns,
             d_floor1_front_columns,
@@ -1058,12 +1158,12 @@
             background3,
             background1,
             background2,
-            border1,
-            border2,
-            border3,
+            frame1,
+            frame2,
+            frame3,
             roof1,
             roof2,
-            roof3
+            roof3,
           ], //end layers
         });
 
@@ -1079,27 +1179,27 @@
 
         view.popup.defaultPopupTemplateEnabled = true;
 
-        view.popup.autoOpenEnabled = false; // Disable the default popup behavior
-        view.on("click", function (event) {
-          // Listen for the click event
-          view.hitTest(event).then(function (hitTestResults) {
-            // Search for features where the user clicked
-            if (hitTestResults.results) {
-              list_points.push([
-                event.mapPoint.longitude,
-                event.mapPoint.latitude,
-              ]);
-              string_points +=
-                "[" +
-                event.mapPoint.longitude +
-                ", " +
-                event.mapPoint.latitude +
-                "],";
-              copyTextToClipboard(string_points);
-              // console.log(list_points);
-            }
-          });
-        });
+        // view.popup.autoOpenEnabled = false; // Disable the default popup behavior
+        // view.on("click", function (event) {
+        //   // Listen for the click event
+        //   view.hitTest(event).then(function (hitTestResults) {
+        //     // Search for features where the user clicked
+        //     if (hitTestResults.results) {
+        //       list_points.push([
+        //         event.mapPoint.longitude,
+        //         event.mapPoint.latitude,
+        //       ]);
+        //       string_points +=
+        //         "[" +
+        //         event.mapPoint.longitude +
+        //         ", " +
+        //         event.mapPoint.latitude +
+        //         "],";
+        //       copyTextToClipboard(string_points);
+        //       // console.log(list_points);
+        //     }
+        //   });
+        // });
       });
     </script>
   </head>

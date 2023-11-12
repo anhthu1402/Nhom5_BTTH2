@@ -81,9 +81,9 @@
               symbolLayers: [
                 {
                   type: "extrude",
-                  size: 8,
+                  size: 7,
                   material: {
-                    color: "smoke",
+                    color: "#d9c3a3",
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
@@ -94,9 +94,54 @@
             },
           },
         });
-
-        //border
-        const border1 = new GeoJSONLayer({
+        // background2
+        const background2 = new GeoJSONLayer({
+          url: "./GeoJSON/background2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#cfcfcf",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+         //background 3
+         const background3 = new GeoJSONLayer({
+          url: "./GeoJSON/background3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#dacdc0",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+         //border
+         const border1 = new GeoJSONLayer({
           url: "./GeoJSON/border/border_1.geojson",
           renderer: {
             type: "simple",
@@ -165,6 +210,388 @@
           },
         });
 
+        const zoneB_wall1 = new GeoJSONLayer({
+          url: "./GeoJSON/A/walls/wall1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 5,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl1 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl2 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl3 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl4 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level4.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl5 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level5.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl6 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level6.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl7 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level7.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_lvl8 = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/stair_level8.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_handle_left = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/handle_left.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 10,
+                  material: {
+                    color: "#d7cfbd",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const b_stair_handle_right = new GeoJSONLayer({
+          url: "./GeoJSON/B/stair/handle_right.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 10,
+                  material: {
+                    color: "#d7cfbd",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        //column 
+        const zoneA_column123 = new GeoJSONLayer({
+          url: "./GeoJSON/A/Columns/column123.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 19.3,
+                  material: {
+                    color: "#f9f5ed",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        //column 
+        const zoneB_column45678 = new GeoJSONLayer({
+          url: "./GeoJSON/B/columns/column45678.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 19.3,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        //front A 
+        const zoneB_frontA_column = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor1/column/collumn_1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 25.3,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //black column
+        const zoneB_block45678_black_column = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor1/column/column_small.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 7,
+                  material: {
+                    color: "gray",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        //B floor 1 room
+        const b_floor1_room = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor1/room/room.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 8,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        //b floor 1 room
+        const b_floor1_room_door = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor1/room/door.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 2.85,
+                  material: {
+                    color: "brown",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -172,7 +599,26 @@
             border1,
             border2,
             border3,
-            background1
+            background1,
+            background2,
+            background3,
+            zoneB_wall1,
+            b_stair_lvl1,
+            b_stair_lvl2,
+            b_stair_lvl3,
+            b_stair_lvl4,
+            b_stair_lvl5,
+            b_stair_lvl6,
+            b_stair_lvl7,
+            b_stair_lvl8,
+            b_stair_handle_left,
+            b_stair_handle_right,
+            zoneB_column45678,
+            zoneB_frontA_column,
+            zoneB_block45678_black_column,
+            b_floor1_room,
+            b_floor1_room_door
+            
           ], //end layers
         });
 
@@ -187,6 +633,45 @@
         });
 
         view.popup.defaultPopupTemplateEnabled = true;
+
+      var list_points = [];
+      var string_points = "";
+
+      function copyTextToClipboard(text) {
+        if (!navigator.clipboard) {
+          fallbackCopyTextToClipboard(text);
+          return;
+        }
+        navigator.clipboard.writeText(text).then(
+          function () {
+            console.log("Async: Copying to clipboard was successful!");
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
+      }
+        view.popup.autoOpenEnabled = false; // Disable the default popup behavior
+        view.on("click", function (event) {
+          // Listen for the click event
+          view.hitTest(event).then(function (hitTestResults) {
+            // Search for features where the user clicked
+            if (hitTestResults.results) {
+              list_points.push([
+                event.mapPoint.longitude,
+                event.mapPoint.latitude,
+              ]);
+              string_points +=
+                "[" +
+                event.mapPoint.longitude +
+                ", " +
+                event.mapPoint.latitude +
+                "],";
+              copyTextToClipboard(string_points);
+              // console.log(list_points);
+            }
+          });
+        });
       });
     </script>
   </head>
