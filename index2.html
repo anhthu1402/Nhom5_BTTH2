@@ -1114,6 +1114,29 @@
           },
         });
 
+        const d_block123_floor1_b_window_wall = new GeoJSONLayer({
+          url: "./GeoJSON/d/block123/floor1/b_window_wall.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 3,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -1160,6 +1183,7 @@
             background2,
             frame1,
             frame2,
+            d_block123_floor1_b_window_wall,
             frame3,
             roof1,
             roof2,
