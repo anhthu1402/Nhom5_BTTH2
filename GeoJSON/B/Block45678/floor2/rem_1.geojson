@@ -1,0 +1,20 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Building name": "zone B - floor - Rèm Hoa Đá",
+          "Note": "block 4->8 front, 4->8 back, row 2,4,6 (top)"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+
+            ]
+        ]}
+      }
+    ]
+  }
+  
