@@ -121,6 +121,29 @@
           });
         };
 
+        const background1 = new GeoJSONLayer({
+          url: "./GeoJSON/background1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 8,
+                  material: {
+                    color: "smoke",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         //frame
         const frame1 = new GeoJSONLayer({
           url: "./GeoJSON/frame/frame_1.geojson",
