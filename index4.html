@@ -1417,6 +1417,29 @@
         });
 
 
+        const door_handle = new GeoJSONLayer({
+          url: "./GeoJSON/block4/door/door_handle.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.3,
+                  material: {
+                    color: "#8A8A8A",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -1481,22 +1504,23 @@
             roof_right,
             roof_left_roof,
             roof_right_roof,
-            roof_innner_border
+            roof_innner_border,
+            door_handle
             // createGraphic
           ], //end layers
         });
 
-        // var graphicsLayer = new GraphicsLayer();
-        // map.add(graphicsLayer);
+        var graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
 
-        // var treeSymbol = new PointSymbol3D({
-        //   symbolLayers: [new ObjectSymbol3DLayer({
-        //     resource: { primitive: "cone" },
-        //     width: 5,
-        //     height: 10,
-        //     material: { color: "green" }
-        //   })]
-        // });
+        var treeSymbol = new PointSymbol3D({
+          symbolLayers: [new ObjectSymbol3DLayer({
+            resource: { primitive: "sphere" },
+            width: 2.5,
+            height: 8,
+            material: { color: "green" }
+          })]
+        });
 
         // var treeLocation = new Point({
         //         longitude: 106.6949526110911,
@@ -1507,7 +1531,31 @@
         //   symbol: treeSymbol
         // });
 
-        // graphicsLayer.add(treeGraphic);
+        // var treeCoordinates = [
+        //   { longitude: 106.6949526110911, latitude: 10.776735364562983 },
+        //   { longitude: 106.69497101455805, latitude: 10.77671873996881 },
+        //   { longitude: 106.6949830958556, latitude: 10.776705701587746 },
+        //   // ... và cứ thế
+        // ];
+
+        // // Tạo một mảng để chứa các đối tượng Graphic
+        // var treeGraphics = [];
+
+        // // Lặp qua mảng tọa độ để tạo các Graphic
+        // treeCoordinates.forEach(function(coord) {
+        //   var treeLocation = new Point({
+        //     longitude: coord.longitude,
+        //     latitude: coord.latitude
+        //   });
+        //   var treeGraphic = new Graphic({
+        //     geometry: treeLocation,
+        //     symbol: treeSymbol // Giả sử treeSymbol đã được định nghĩa trước đó
+        //   });
+        //   treeGraphics.push(treeGraphic);
+        // });
+
+        //graphicsLayer.add(treeGraphic);
+
         const view = new SceneView({
           container: "viewDiv",
           map: map,
