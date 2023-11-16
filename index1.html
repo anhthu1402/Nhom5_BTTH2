@@ -565,6 +565,98 @@
             },
           },
         });
+        // B_Rèm Hoa Đá top front
+        const zoneB_block45678_floor2_RemHoaDa1 = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor2/rem_1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.001,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        // B_Rèm Hoa Đá bottom front
+        const zoneB_block45678_floor2_RemHoaDa2 = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor2/rem_2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.001,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+         // B_Rèm Hoa Đá top back
+         const zoneB_block45678_floor2_RemHoaDa3 = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor2/rem_3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.001,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        // B_Rèm Hoa Đá bottom back
+        const zoneB_block45678_floor2_RemHoaDa4 = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block45678/floor2/rem_4.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.001,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
 
         //black column
         const zoneB_block45678_black_column = new GeoJSONLayer({
@@ -683,6 +775,10 @@
             zoneB_column123,
             zoneB_column123_beside,
             zoneB_column45678,
+            zoneB_block45678_floor2_RemHoaDa1,
+            zoneB_block45678_floor2_RemHoaDa2,
+            zoneB_block45678_floor2_RemHoaDa3,
+            zoneB_block45678_floor2_RemHoaDa4,
             zoneB_frontA_column,
             zoneB_block45678_black_column,
             b_floor1_inside_columns_decor,
