@@ -411,47 +411,144 @@
         const b_stair_handle_left = new GeoJSONLayer({
           url: "./GeoJSON/B/stair/handle_left.geojson",
           renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 10,
-                  material: {
-                    color: "#d7cfbd",
-                  },
-                  edges: {
-                    type: "solid",
-                    color: "transparent",
-                  },
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 10,
+                material: {
+                  color: "#d7cfbd",
                 },
-              ],
-            },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
           },
+        },
         });
         const b_stair_handle_right = new GeoJSONLayer({
           url: "./GeoJSON/B/stair/handle_right.geojson",
           renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 10,
-                  material: {
-                    color: "#d7cfbd",
-                  },
-                  edges: {
-                    type: "solid",
-                    color: "transparent",
-                  },
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 10,
+                material: {
+                  color: "#d7cfbd",
                 },
-              ],
-            },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
           },
+        },
         });
+         //stair_side-door
+      const b_side_door_column = new GeoJSONLayer({
+        url: "./GeoJSON/B/side_door/side_door_column.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 9,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+ //side_door_top_1
+ const b_side_door_top_1 = new GeoJSONLayer({
+        url: "./GeoJSON/B/side_door/side_door_top_1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 2,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      //side_door_top_2
+      const b_side_door_top_2 = new GeoJSONLayer({
+        url: "./GeoJSON/B/side_door/side_door_top_2.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 0.9,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      //side_door_top_3
+      const b_side_door_top_3 = new GeoJSONLayer({
+        url: "./GeoJSON/B/side_door/side_door_top_3.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 0.2,
+                material: {
+                  color: "#fbedd7",
+                  //[251, 237, 215, 0.2],
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+
         //column 
         const zoneA_column123 = new GeoJSONLayer({
           url: "./GeoJSON/A/Columns/column123.geojson",
@@ -772,6 +869,10 @@
             b_stair_lvl8,
             b_stair_handle_left,
             b_stair_handle_right,
+            b_side_door_column,
+            b_side_door_top_1,
+            b_side_door_top_2,
+            b_side_door_top_3,
             zoneB_column123,
             zoneB_column123_beside,
             zoneB_column45678,

@@ -4,7 +4,8 @@
       {
         "type": "Feature",
         "properties": {
-          "Building name": "zoneD_stair_8"
+          "Building name": "zoneD_stair_8",
+          "note": "right_tren, left_tren, left_duoi, right_duoi"
         },
         "geometry": {
           "type": "Polygon",
