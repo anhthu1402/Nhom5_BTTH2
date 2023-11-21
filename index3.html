@@ -1,196 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <title>Document</title>
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
 
-      #back {
-        position: absolute;
-        bottom: 20px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
 
-      #back i {
-        background-image: url(app/public/img/back.svg);
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 100px;
-        height: 25px;
-        padding-left: 25px;
-        padding-top: 2px;
-        margin: 10px;
-        cursor: pointer;
-        background-size: 20px;
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.16/esri/themes/light/main.css"
-    />
-    <script src="https://js.arcgis.com/4.16/"></script>
-    <script>
-      require([
-        "esri/Map",
-        "esri/views/SceneView",
-        "esri/layers/GeoJSONLayer",
-        "esri/layers/SceneLayer",
-        "esri/layers/GraphicsLayer",
-        "esri/Graphic",
-        "esri/request",
-        "esri/geometry/Mesh",
-        "esri/geometry/Point",
-      ], function (
-        Map,
-        SceneView,
-        GeoJSONLayer,
-        SceneLayer,
-        GraphicsLayer,
-        Graphic,
-        esriRequest,
-        Mesh,
-        Point
-      ) {
-        var createGraphic = function (data) {
-          return new Graphic({
-            geometry: data,
-            symbol: data.symbol,
-            attributes: data,
-            popupTemplate: data.popupTemplate,
-          });
-        };
+    #back {
+      position: absolute;
+      bottom: 20px;
+    }
 
-        // background1
-        const background1 = new GeoJSONLayer({
-          url: "./GeoJSON/background1.geojson",
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 8,
-                  material: {
-                    color: "smoke",
-                  },
-                  edges: {
-                    type: "solid", // autocasts as new SolidEdges3D()
-                    color: "transparent",
-                  },
+    #back i {
+      background-image: url(app/public/img/back.svg);
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 100px;
+      height: 25px;
+      padding-left: 25px;
+      padding-top: 2px;
+      margin: 10px;
+      cursor: pointer;
+      background-size: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.16/"></script>
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/layers/GeoJSONLayer",
+      "esri/layers/SceneLayer",
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic",
+      "esri/request",
+      "esri/geometry/Mesh",
+      "esri/geometry/Point",
+    ], function (
+      Map,
+      SceneView,
+      GeoJSONLayer,
+      SceneLayer,
+      GraphicsLayer,
+      Graphic,
+      esriRequest,
+      Mesh,
+      Point
+    ) {
+      var createGraphic = function (data) {
+        return new Graphic({
+          geometry: data,
+          symbol: data.symbol,
+          attributes: data,
+          popupTemplate: data.popupTemplate,
+        });
+      };
+
+      // background1
+      const background1 = new GeoJSONLayer({
+        url: "./GeoJSON/background1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 8,
+                material: {
+                  color: "smoke",
                 },
-              ],
-            },
-          },
-        });
-
-        //border
-        const border1 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_1.geojson",
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 1.5,
-                  material: {
-                    color: "smoke",
-                  },
-                  edges: {
-                    type: "solid", // autocasts as new SolidEdges3D()
-                    color: "transparent",
-                  },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
                 },
-              ],
-            },
+              },
+            ],
           },
-        });
-
-        const border2 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_2.geojson",
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 1,
-                  material: {
-                    color: "#fbedd7",
-                  },
-                  edges: {
-                    type: "solid", // autocasts as new SolidEdges3D()
-                    color: "transparent",
-                  },
-                },
-              ],
-            },
-          },
-        });
-
-        const border3 = new GeoJSONLayer({
-          url: "./GeoJSON/border/border_3.geojson",
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "polygon-3d",
-              symbolLayers: [
-                {
-                  type: "extrude",
-                  size: 0.5,
-                  material: {
-                    color: "#fbedd7",
-                  },
-                  edges: {
-                    type: "solid", // autocasts as new SolidEdges3D()
-                    color: "transparent",
-                  },
-                },
-              ],
-            },
-          },
-        });
-
-        const map = new Map({
-          basemap: "topo-vector",
-          ground: "world-elevation",
-          layers: [
-            border1,
-            border2,
-            border3,
-            background1
-          ], //end layers
-        });
-
-        const view = new SceneView({
-          container: "viewDiv",
-          map: map,
-          camera: {
-            position: [106.69495037907745, 10.77410539190575, 230],
-            heading: 0,
-            tilt: 55,
-          },
-        });
-
-        view.popup.defaultPopupTemplateEnabled = true;
+        },
       });
-    </script>
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-  </body>
+      const roof2 = new GeoJSONLayer({
+        url: "./GeoJSON/roof/roof2.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1,
+                material: {
+                  color: "#e9cb8a",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+
+
+
+
+
+
+      //border
+      const border1 = new GeoJSONLayer({
+        url: "./GeoJSON/border/border_1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1.5,
+                material: {
+                  color: "smoke",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const border2 = new GeoJSONLayer({
+        url: "./GeoJSON/border/border_2.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const border3 = new GeoJSONLayer({
+        url: "./GeoJSON/border/border_3.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 0.5,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const top_roof = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/roof/top_roof.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1.3,
+                material: {
+                  color: "yello",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const top_roof_not_straight = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/roof/top_roof_not_straight.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1.1,
+                material: {
+                  color: "pink",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const roof1 = new GeoJSONLayer({
+        url: "./GeoJSON/block4_above/roofs/roof1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1.5,
+                material: {
+                  color: "#dacdc0",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const roof3 = new GeoJSONLayer({
+        url: "./GeoJSON/roof/roof3.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 0.4,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const background2 = new GeoJSONLayer({
+        url: "./GeoJSON/background2.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1,
+                material: {
+                  color: "#cfcfcf",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const background3 = new GeoJSONLayer({
+        url: "./GeoJSON/background3.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1,
+                material: {
+                  color: "#dacdc0",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const d_columns = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/columns/floor2_columns.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 19.3,
+                material: {
+                  color: "#fbedd7",
+                  //[251, 237, 215, 0.2],
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const d_floor2_side_columns = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/columns/floor2_side_columns.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 16.3,
+                material: {
+                  color: "#fbedd7",
+                  //[251, 237, 215, 0.2],
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const block3_columns = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/columns/block3_column.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 16.3,
+                material: {
+                  color: "#fbedd7",
+                  //[251, 237, 215, 0.2],
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const block3_2_columns = new GeoJSONLayer({
+        url: "./GeoJSON/Block3/columns/block3_2_column.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 16.3,
+                material: {
+                  color: "#fbedd7",
+                  //[251, 237, 215, 0.2],
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      // view.on("click", function (event) {
+      //   // Lấy tọa độ mapPoint từ sự kiện
+      //   var point = event.mapPoint;
+
+      //   // Hiển thị hoặc sử dụng tọa độ
+      //   console.log("Tọa độ:", point.longitude, point.latitude);
+      //   // end
+      // })
+
+      const map = new Map({
+        basemap: "topo-vector",
+        ground: "world-elevation",
+        layers: [
+          border1,
+          border2,
+          border3,
+          roof2,
+          roof3,
+          roof1,
+          background1,
+          background2,
+          background3,
+          d_columns,
+          d_floor2_side_columns,
+          block3_columns,
+          block3_2_columns,
+          top_roof,
+          top_roof_not_straight
+        ], //end layers
+      });
+
+      const view = new SceneView({
+        container: "viewDiv",
+        map: map,
+        camera: {
+          position: [106.69495037907745, 10.77410539190575, 230],
+          heading: 0,
+          tilt: 55,
+        },
+      });
+      view.on("click", function (event) {
+        // Lấy tọa độ mapPoint từ sự kiện
+        var point = event.mapPoint;
+
+        // Hiển thị hoặc sử dụng tọa độ
+        console.log("[" + point.longitude + "," + point.latitude + "," + 28.4 + "]" + ",");
+        // end
+      })
+
+      view.popup.defaultPopupTemplateEnabled = true;
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
 </html>
