@@ -1,0 +1,27 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Building name": "zoneB_columns_beside",
+          "note":"right to left"
+        },
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [  
+              [
+                [106.695072610178 , 10.777259781836298, 28.4],
+                [106.69507652458 , 10.777264159933399,  28.4],
+                [106.695085078296 , 10.7772567318443, 28.4],
+                [106.695081163894 , 10.7772523537472 , 28.4]
+              ]
+            ]
+        ]
+        },
+        "id": "pp1"
+      }
+    ]
+  }
+  
