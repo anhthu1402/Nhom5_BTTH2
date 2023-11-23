@@ -4,7 +4,8 @@
         {
             "type": "Feature",
             "properties": {
-                "Building name": "zone_B_inside_columns_decor"
+                "Building name": "zone_B_inside_columns_decor",
+                "note": "inside_collum decor"
             },
             "geometry": {
                 "type": "MultiPolygon",
