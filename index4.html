@@ -1169,7 +1169,7 @@
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
-                    color: "#000000",
+                    color: "transparent",
                   },
                 },
               ],
@@ -1192,7 +1192,7 @@
                   },
                   edges: {
                     type: "solid", // autocasts as new SolidEdges3D()
-                    color: "#000000",
+                    color: "transparent",
                   },
                 },
               ],
@@ -1323,6 +1323,122 @@
             },
           },
         });
+
+        const pillars_door = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/pillars/pillars_door.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 12.7,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 12.1,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls2 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 121 / 75,
+                  material: {
+                    color: "#white",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls3 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 121 / 75,
+                  material: {
+                    color: "#white",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls4 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls4.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 2.42,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
 
         const roof_left = new GeoJSONLayer({
           url: "./GeoJSON/block4_above/roofs/roof_left.geojson",
@@ -1463,6 +1579,8 @@
           },
         });
 
+        
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -1523,6 +1641,11 @@
             background2,
             background3,
             pillars,
+            pillars_door,
+            walls,
+            walls2,
+            walls3,
+            walls4,
             roof_left,
             roof_right,
             roof_left_roof,
@@ -1590,6 +1713,31 @@
 
         });
 
+        view.popup.defaultPopupTemplateEnabled = true;
+
+        // view.popup.autoOpenEnabled = false; // Disable the default popup behavior
+        // view.on("click", function (event) {
+        //   // Listen for the click event
+        //   view.hitTest(event).then(function (hitTestResults) {
+        //     // Search for features where the user clicked
+        //     if (hitTestResults.results) {
+        //       list_points.push([
+        //         event.mapPoint.longitude,
+        //         event.mapPoint.latitude,
+        //       ]);
+        //       string_points +=
+        //         "[" +
+        //         event.mapPoint.longitude +
+        //         ", " +
+        //         event.mapPoint.latitude +
+        //         "],";
+        //       console.log(event.mapPoint.longitude + " " + event.mapPoint.latitude)
+        //       copyTextToClipboard(string_points);
+        //       // console.log(list_points);
+        //     }
+        //   });
+        // });
+
         // var graphicsLayer = new GraphicsLayer();
         // map.add(graphicsLayer);
 
@@ -1613,15 +1761,15 @@
 
         // graphicsLayer.add(treeGraphic);
 
-        view.on("click", function (event) {
-          // Lấy tọa độ mapPoint từ sự kiện
-          var point = event.mapPoint;
+        // view.on("click", function (event) {
+        //   // Lấy tọa độ mapPoint từ sự kiện
+        //   var point = event.mapPoint;
 
-          // Hiển thị hoặc sử dụng tọa độ
-          console.log("Tọa độ:", point.longitude, point.latitude);
-          // end
-        })
-        view.popup.defaultPopupTemplateEnabled = true;
+        //   // Hiển thị hoặc sử dụng tọa độ
+        //   console.log("Tọa độ:", point.longitude, point.latitude);
+        //   // end
+        // })
+        // view.popup.defaultPopupTemplateEnabled = true;
       });
     })
   </script>
@@ -1630,5 +1778,7 @@
 <body>
   <div id="viewDiv"></div>
 </body>
+
+</html>
 
 </html>
