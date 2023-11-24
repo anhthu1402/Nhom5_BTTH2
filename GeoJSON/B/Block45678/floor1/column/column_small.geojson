@@ -6,7 +6,7 @@
         "type": "Feature",
         "properties": {
           "Building name": "zoneB_columns",
-          "note":"1_front, 4 after"
+          "note":"row 1: 2, row 2: 5"
         },
         "geometry": {
           "type": "MultiPolygon",
