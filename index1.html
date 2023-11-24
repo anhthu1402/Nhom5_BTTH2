@@ -210,6 +210,80 @@
           },
         });
 
+
+        // roof
+        const roof1 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof1.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.5,
+                  material: {
+                    color: "#dacdc0",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //roof2
+        const roof2 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#e9cb8a",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        //roof3
+        const roof3 = new GeoJSONLayer({
+          url: "./GeoJSON/roof/roof3.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.4,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        
         const zoneB_wall1 = new GeoJSONLayer({
           url: "./GeoJSON/A/walls/wall1.geojson",
           renderer: {
@@ -596,7 +670,7 @@
           },
         });
         const zoneB_column123_beside = new GeoJSONLayer({
-          url: "./GeoJSON/B/Block123/column/column.geojson",
+          url: "./GeoJSON/B/Block123/column/column_beside.geojson",
           renderer: {
             type: "simple",
             symbol: {
@@ -605,6 +679,28 @@
                 {
                   type: "extrude",
                   size: 19.3,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        const zoneB_column123_beside_door = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block123/column/column_beside_door.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 16.3,
                   material: {
                     color: "#fbedd7",
                   },
@@ -896,6 +992,8 @@
           },
         });
 
+
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -923,6 +1021,7 @@
             b_side_door_top_3,
             zoneB_column123,
             zoneB_column123_beside,
+            zoneB_column123_beside_door,
             zoneB_column45678,
             zoneB_block45678_floor2_RemHoaDa1,
             zoneB_block45678_floor2_RemHoaDa2,
