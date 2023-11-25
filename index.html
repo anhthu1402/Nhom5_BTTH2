@@ -3131,6 +3131,28 @@
             },
           },
         });
+        const zoneB_column123_back = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block123/column/column_back.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 19.3,
+                  material: {
+                    color: "#fbedd7",
+                  },
+                  edges: {
+                    type: "solid",
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
         const zoneB_column45678 = new GeoJSONLayer({
           url: "./GeoJSON/B/columns/column45678.geojson",
           renderer: {
@@ -3469,6 +3491,7 @@
             zoneB_column123,
             zoneB_column123_beside,
             zoneB_column123_beside_door,
+            zoneB_column123_back,
             zoneB_column45678,
             zoneB_block45678_floor2_RemHoaDa1,
             zoneB_block45678_floor2_RemHoaDa2,
