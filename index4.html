@@ -1324,6 +1324,29 @@
           },
         });
 
+        const pillars2 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/pillars/pillars2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "gray",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const pillars_door = new GeoJSONLayer({
           url: "./GeoJSON/block4_above/pillars/pillars_door.geojson",
           renderer: {
@@ -1426,6 +1449,52 @@
                 {
                   type: "extrude",
                   size: 2.42,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls5 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls5.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.21,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const walls6 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls6.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 16.3,
                   material: {
                     color: "#ffecd4",
                   },
@@ -1581,6 +1650,8 @@
 
         
 
+        
+
         const map = new Map({
           basemap: "topo-vector",
           ground: "world-elevation",
@@ -1641,11 +1712,14 @@
             background2,
             background3,
             pillars,
+            pillars2,
             pillars_door,
             walls,
             walls2,
             walls3,
             walls4,
+            walls5,
+            walls6,
             roof_left,
             roof_right,
             roof_left_roof,
