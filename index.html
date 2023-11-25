@@ -2495,6 +2495,29 @@
           },
         });
 
+        const c_pillars2 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/pillars/pillars2.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "gray",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
         const c_pillars_door = new GeoJSONLayer({
           url: "./GeoJSON/block4_above/pillars/pillars_door.geojson",
           renderer: {
@@ -2597,6 +2620,52 @@
                 {
                   type: "extrude",
                   size: 2.42,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const c_walls5 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls5.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1.21,
+                  material: {
+                    color: "#ffecd4",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
+        const c_walls6 = new GeoJSONLayer({
+          url: "./GeoJSON/block4_above/walls/walls6.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 16.3,
                   material: {
                     color: "#ffecd4",
                   },
@@ -3543,11 +3612,14 @@
             c_block_5_1,
             c_block_5_2,
             c_pillars,
+            c_pillars2,
             c_pillars_door,
             c_walls,
             c_walls2,
             c_walls3,
             c_walls4,
+            c_walls5,
+            c_walls6,
             c_roof_left,
             c_roof_right,
             c_roof_left_roof,
