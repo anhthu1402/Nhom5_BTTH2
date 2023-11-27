@@ -4,8 +4,8 @@
       {
         "type": "Feature",
         "properties": {
-          "Building name": "zoneB_columns_beside_door",
-          "note": "3 4 5 in column beside"
+          "Building name": "zoneB_columns_back",
+          "note": "1 2 3 4 in column back"
         },
         "geometry": {
           "type": "MultiPolygon",

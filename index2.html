@@ -1592,7 +1592,260 @@
         });
 
 
+      //stair_side-door
+      const b_side_door_column = new GeoJSONLayer({
+        url: "./GeoJSON/B/side_door/side_door_column.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 9,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
 
+      //column
+      const zoneB_column123 = new GeoJSONLayer({
+        url: "./GeoJSON/B/columns/column123.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 19.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const zoneB_column123_beside = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block123/column/column_beside.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 19.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const zoneB_column123_beside_door = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block123/column/column_beside_door.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 16.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const zoneB_column123_back = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block123/column/column_back.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 19.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      const zoneB_column45678 = new GeoJSONLayer({
+        url: "./GeoJSON/B/columns/column45678.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 19.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      //front A
+      const zoneB_frontA_column = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block45678/floor1/column/collumn_1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 25.3,
+                material: {
+                  color: "#fbedd7",
+                },
+                edges: {
+                  type: "solid",
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      //--------------newest---------------\\ ngựa 🫏
+
+      // block123 floor 2 wall
+      const b_block123_floor2_wall1 = new GeoJSONLayer({
+        url: "./GeoJSON/b/block123/floor2/wall1.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 12.1,
+                material: {
+                  color: "#ffecd4",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const b_block123_floor2_wall2 = new GeoJSONLayer({
+        url: "./GeoJSON/b/block123/floor2/wall2.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 1.21,
+                material: {
+                  color: "#ffecd4",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const b_block123_floor2_wall3 = new GeoJSONLayer({
+        url: "./GeoJSON/b/block123/floor2/wall3.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 2.42,
+                material: {
+                  color: "#ffecd4",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      const b_block123_floor2_window_balcony = new GeoJSONLayer({
+        url: "./GeoJSON/b/block123/floor2/window_balcony.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 121 / 75,
+                material: {
+                  color: "white",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
 
       const map = new Map({
         basemap: "topo-vector",
@@ -1602,7 +1855,7 @@
           block123_floor2_window_balcony,
           block123_floor2_wall2,
           block123_floor2_wall1,
-          d_attic_roof_floor2,
+          /*d_attic_roof_floor2,
           d_attic_roof_floor1,
           d_attic_roof_frame,
           d_block45678_floor2_RemHoaDa_top,
@@ -1614,9 +1867,9 @@
           d_roof_sub_edge1_frame,
           d_attic_floor,
           d_roof_sub_edge2,
-          d_roof_sub_edge1,
+          d_roof_sub_edge1,*/
           d_columns,
-          d_floor1_roof_columns,
+          /*d_floor1_roof_columns,
           d_floor2_side_columns,
           d_floor2_side_columns,
           d_floor1_room_door,
@@ -1636,7 +1889,7 @@
           d_side_star,
           d_block123_floor1_a_window_side_window,
           d_block123_floor1_a_window_top_bottom,
-          d_block123_floor1_d_window_top_bottom,
+          d_block123_floor1_d_window_top_bottom,*/
           background3,
           background1,
           background2,
@@ -1644,7 +1897,7 @@
           frame2,
           d_block123_floor1_b_window_wall,
           frame3,
-          roof1,
+          /*roof1,
           roof2,
           roof3,
           top_roof,
@@ -1663,9 +1916,20 @@
           a_slope_right,
           a_slope_left,
           a_side_left,
-          a_side_right
+          a_side_right*/
+          b_side_door_column,
+          zoneB_column123,
+          zoneB_column123_beside,
+          zoneB_column123_beside_door,
+          zoneB_column123_back,
+          zoneB_column45678,
+          zoneB_frontA_column,
 
-
+          //newest
+          b_block123_floor2_window_balcony,
+          b_block123_floor2_wall3,
+          b_block123_floor2_wall2,
+          b_block123_floor2_wall1
         ], //end layers
       });
 
@@ -1689,27 +1953,27 @@
 
       view.popup.defaultPopupTemplateEnabled = true;
 
-      // view.popup.autoOpenEnabled = false; // Disable the default popup behavior
-      // view.on("click", function (event) {
-      //   // Listen for the click event
-      //   view.hitTest(event).then(function (hitTestResults) {
-      //     // Search for features where the user clicked
-      //     if (hitTestResults.results) {
-      //       list_points.push([
-      //         event.mapPoint.longitude,
-      //         event.mapPoint.latitude,
-      //       ]);
-      //       string_points +=
-      //         "[" +
-      //         event.mapPoint.longitude +
-      //         ", " +
-      //         event.mapPoint.latitude +
-      //         "],";
-      //       copyTextToClipboard(string_points);
-      //       // console.log(list_points);
-      //     }
-      //   });
-      // });
+      view.popup.autoOpenEnabled = false; // Disable the default popup behavior
+      view.on("click", function (event) {
+        // Listen for the click event
+        view.hitTest(event).then(function (hitTestResults) {
+          // Search for features where the user clicked
+          if (hitTestResults.results) {
+            list_points.push([
+              event.mapPoint.longitude,
+              event.mapPoint.latitude,
+            ]);
+            string_points +=
+              "[" +
+              event.mapPoint.longitude +
+              ", " +
+              event.mapPoint.latitude +
+              "],";
+            copyTextToClipboard(string_points);
+            console.log(list_points);
+          }
+        });
+      });
     });
   </script>
 </head>
