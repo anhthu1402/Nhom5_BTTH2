@@ -735,6 +735,30 @@
             },
           },
         });
+          // side window _ side a
+      const zoneB_block123_floor1_a_window_side_window = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block123/floor1/a/window/side_window.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
+                size: 5,
+                material: {
+                  color: "#d9c3a3",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+
         const zoneB_column45678 = new GeoJSONLayer({
           url: "./GeoJSON/B/columns/column45678.geojson",
           renderer: {
@@ -965,6 +989,53 @@
           },
         },
       });
+      // window top - bottom - side B
+      const b_block123_floor1_b_window_top_bottom = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block123/floor1/b/window/window_top_bottom.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 1,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        // window top - bottom - side A
+        const b_block123_floor1_a_window_top_bottom = new GeoJSONLayer({
+          url: "./GeoJSON/B/Block123/floor1/a/window/window_top_bottom.geojson",
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "polygon-3d",
+              symbolLayers: [
+                {
+                  type: "extrude",
+                  size: 0.2,
+                  material: {
+                    color: "#d9c3a3",
+                  },
+                  edges: {
+                    type: "solid", // autocasts as new SolidEdges3D()
+                    color: "transparent",
+                  },
+                },
+              ],
+            },
+          },
+        });
+
 
 
         //B floor 1 room
@@ -1056,7 +1127,12 @@
             b_floor1_inside_columns_decor,
             b_floor1_roof_columns,
             b_floor1_room,
-            b_floor1_room_door
+            b_floor1_room_door,
+
+
+            zoneB_block123_floor1_a_window_side_window,
+            b_block123_floor1_b_window_top_bottom,
+            b_block123_floor1_a_window_top_bottom
             
           ], //end layers
         });
