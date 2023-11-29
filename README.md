@@ -1,4 +1,4 @@
-Thành viên tham gia BTTH 2(7/8):
+Thành viên tham gia BTTH 2 (7/8):
 
 - Trần Thị Anh Thư - 20520792
 - An Trương Tường Vi - 20520856
