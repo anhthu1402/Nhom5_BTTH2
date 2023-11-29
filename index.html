@@ -3387,6 +3387,29 @@
             symbolLayers: [
               {
                 type: "extrude",
+                size: 5.6,
+                material: {
+                  color: "gray",
+                },
+                edges: {
+                  type: "solid", // autocasts as new SolidEdges3D()
+                  color: "transparent",
+                },
+              },
+            ],
+          },
+        },
+      });
+      //black decor column in front
+      const zoneB_block45678_black_decor_column = new GeoJSONLayer({
+        url: "./GeoJSON/B/Block45678/floor1/column/column_black_decor.geojson",
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "polygon-3d",
+            symbolLayers: [
+              {
+                type: "extrude",
                 size: 7,
                 material: {
                   color: "gray",
@@ -3735,6 +3758,7 @@
           zoneB_frontA_column,
           zoneB_block45678_small_column,
           zoneB_block45678_black_column,
+          zoneB_block45678_black_decor_column,
           b_floor1_inside_columns_decor,
           b_floor1_roof_columns,
           b_floor1_room,
